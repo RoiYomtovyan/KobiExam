@@ -78,6 +78,8 @@ public void SanityTest01_Registration_Page_Verification() throws InterruptedExce
        ShippingPage.phoneNumber(driver).click();
        ShippingPage.phoneNumber(driver).sendKeys("054-6036683");
        ShippingPage.region(driver).click();
+       ShippingPage.region(driver).sendKeys("California");
+       ShippingPage.region(driver).click();
 }
 
 
