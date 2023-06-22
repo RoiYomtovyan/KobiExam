@@ -9,7 +9,7 @@ public class MainPage {
     public static WebElement element;
 
     public static WebElement openGearDropdown (WebDriver driver){
-        element=driver.findElement(By.cssSelector ("li.level0.nav-4"));
+        element=driver.findElement(By.linkText ("Gear"));
         return element;
     }
 

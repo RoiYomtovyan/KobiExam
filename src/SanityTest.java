@@ -14,6 +14,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 public class SanityTest {
    public static WebDriver driver ;
     Actions action = new Actions(driver);
+    Actions builder = new Actions(driver);
     WebDriverWait wait = new WebDriverWait(driver, 30);
 
     @BeforeClass
@@ -44,11 +45,13 @@ public class SanityTest {
         // Example usage: Open a webpage
         driver.get("https://magento.softwaretestingboard.com/");
 
+
     }
 
 @Test
 // this test is verifying the registration of new user and report the result in the report
-public void SanityTest01_Registration_Page_Verification(){
+public void SanityTest01_Registration_Page_Verification() throws InterruptedException {
+       wait.until(ExpectedConditions.elementToBeClickable(MainPage.openGearDropdown(driver)));
        action.moveToElement(MainPage.openGearDropdown(driver)).build().perform();
        MainPage.Bags(driver).click();
        BagsPage.pushItMessengerBag(driver).click();
@@ -56,6 +59,9 @@ public void SanityTest01_Registration_Page_Verification(){
        wait.until(ExpectedConditions.textToBePresentInElement(BagsPage.counterNumber(driver),"1"));
        BagsPage.counterNumber(driver).click();
        BagsPage.checkoutControl(driver).click();
+       Thread.sleep(4000);
+       action.moveToElement(ShippingPage.email(driver)).build().perform();
+       ShippingPage.email(driver).click();
 
        // MainPage.openGearDropdown(driver).click();
 //    RegistrationPage.notRegisteredYet(driver).click();
