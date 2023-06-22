@@ -7,6 +7,7 @@ import org.openqa.selenium.firefox.FirefoxProfile;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 @FixMethodOrder (MethodSorters.NAME_ASCENDING)
@@ -80,6 +81,7 @@ public void SanityTest01_Registration_Page_Verification() throws InterruptedExce
        ShippingPage.region(driver).click();
        ShippingPage.region(driver).sendKeys("California");
        ShippingPage.region(driver).click();
+       wait.until(ExpectedConditions.elementToBeClickable(ShippingPage.selectFlatRateShippingMethod(driver))).click();
 }
 
 

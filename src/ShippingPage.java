@@ -4,6 +4,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.interactions.MoveTargetOutOfBoundsException;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 // this class is the object repository of the Gift selection page
 
@@ -68,12 +69,20 @@ public class ShippingPage {
         return element;
     }
 
-    public static void scrollToElement (WebElement element ,WebDriver driver){
+    public static WebElement selectFlatRateShippingMethod (WebDriver driver){
+       element = driver.findElement(By.xpath("//li[@id=\"opc-shipping_method\"]//div[@class=\"checkout-shipping-method\"]//div[@id=\"checkout-step-shipping_method\"]//form[@id=\"co-shipping-method-form\"]//div[@id=\"checkout-shipping-method-load\"]//table[@class=\"table-checkout-shipping-method\"]//tbody//tr[@data-bind=\"click: element.selectShippingMethod\"]//td[@class=\"col col-method\"]//input[@name=\"ko_unique_3\"]"));
+        scrollToElement(element,driver);
+        return element;
+    }
+
+
+    public static void scrollToElement (WebElement element , WebDriver driver){
         String js_code = "arguments[0].scrollIntoView();";
         JavascriptExecutor jse = (JavascriptExecutor)driver;
         scrollToElement = (WebElement) jse.executeScript("arguments[0].scrollIntoView();", element);
 
     }
+
 
 
 
