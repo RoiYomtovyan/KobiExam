@@ -44,6 +44,12 @@ public class ShippingPage {
         return element;
     }
 
+    public static WebElement city  (WebDriver driver){
+        element = driver.findElement(By.xpath("//form[@id=\"co-shipping-form\"]//div//div//div[@class=\"control\"]//input[@name=\"city\"]"));
+        scrollToElement(element,driver);
+        return element;
+    }
+
     public static void scrollToElement (WebElement element ,WebDriver driver){
         String js_code = "arguments[0].scrollIntoView();";
         JavascriptExecutor jse = (JavascriptExecutor)driver;

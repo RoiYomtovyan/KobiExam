@@ -14,7 +14,6 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 public class SanityTest {
    public static WebDriver driver ;
     Actions action = new Actions(driver);
-    Actions builder = new Actions(driver);
     WebDriverWait wait = new WebDriverWait(driver, 30);
 
     @BeforeClass
@@ -49,7 +48,6 @@ public class SanityTest {
     }
 
 @Test
-// this test is verifying the registration of new user and report the result in the report
 public void SanityTest01_Registration_Page_Verification() throws InterruptedException {
        wait.until(ExpectedConditions.elementToBeClickable(MainPage.openGearDropdown(driver)));
        action.moveToElement(MainPage.openGearDropdown(driver)).build().perform();
@@ -72,30 +70,9 @@ public void SanityTest01_Registration_Page_Verification() throws InterruptedExce
        ShippingPage.company(driver).click();
        ShippingPage.company(driver).sendKeys("Roi LTD");
        ShippingPage.streetAddress(driver).click();
-       ShippingPage.streetAddress(driver).sendKeys("the best street in the world!");
-
-       // MainPage.openGearDropdown(driver).click();
-//    RegistrationPage.notRegisteredYet(driver).click();
-//    RegistrationPage.userName(driver).sendKeys("Roi");
-//    // this function is calling the "generateString" method from "RandomStringGenerator" to generate unique email address
-//    RegistrationPage.mailField(driver).sendKeys(RandomStringGenerator.generateString()+"@Roi.com" );
-//    RegistrationPage.passwordField(driver).sendKeys("1234.Com");
-//    RegistrationPage.passwordValidation(driver).sendKeys("1234.Com");
-//    RegistrationPage.iAgreeRadioButton(driver).click();
-//    boolean pressed = false;
-//    try {
-//    RegistrationPage.Submit(driver).click();
-//        pressed = true;
-//    } catch (Exception e) {
-//        e.printStackTrace();
-//        test.log(Status.FAIL, "Submit button of regestration form was not clicked " + e.getMessage());
-//        pressed = false;
-//    } finally {
-//        if (pressed) {
-//            test.log(Status.PASS, "the user was registers successfully");
-//
-//        }
-//    }
+       ShippingPage.streetAddress(driver).sendKeys("the best street in town!");
+       ShippingPage.city(driver).click();
+       ShippingPage.city(driver).sendKeys("the best city in the world!");
 }
 
 
