@@ -62,6 +62,12 @@ public class ShippingPage {
         return element;
     }
 
+    public static WebElement region (WebDriver driver){
+        element = driver.findElement(By.xpath("//form//div//div//div//select[@name=\"region_id\"]"));
+        scrollToElement(element,driver);
+        return element;
+    }
+
     public static void scrollToElement (WebElement element ,WebDriver driver){
         String js_code = "arguments[0].scrollIntoView();";
         JavascriptExecutor jse = (JavascriptExecutor)driver;

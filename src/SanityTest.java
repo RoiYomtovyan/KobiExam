@@ -77,6 +77,7 @@ public void SanityTest01_Registration_Page_Verification() throws InterruptedExce
        ShippingPage.postCode(driver).sendKeys("12345-6789");
        ShippingPage.phoneNumber(driver).click();
        ShippingPage.phoneNumber(driver).sendKeys("054-6036683");
+       ShippingPage.region(driver).click();
 }
 
 
