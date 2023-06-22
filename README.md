@@ -1,1 +1,1 @@
-please refer to "Automating BuyMe website.pdf" file for project specification.
+QA Automation Home Task -Roi Yomtovyan
