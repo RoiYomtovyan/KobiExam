@@ -15,4 +15,12 @@ public class BagsPage {
         return element;
     }
 
+
+    public  static WebElement addToCart (WebDriver driver){
+        element = driver.findElement(By.xpath("//button[@title=\"Add to Cart\"]"));
+        return element;
+    }
+
+
+
 }

@@ -5,13 +5,15 @@ import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.firefox.FirefoxProfile;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 @FixMethodOrder (MethodSorters.NAME_ASCENDING)
 
 public class SanityTest {
    public static WebDriver driver ;
     Actions action = new Actions(driver);
-
+    WebDriverWait wait = new WebDriverWait(driver, 30);
 
     @BeforeClass
     public static void start () throws Exception {
@@ -49,6 +51,7 @@ public void SanityTest01_Registration_Page_Verification(){
        action.moveToElement(MainPage.openGearDropdown(driver)).build().perform();
        MainPage.Bags(driver).click();
        BagsPage.pushItMessengerBag(driver).click();
+       wait.until(ExpectedConditions.elementToBeClickable(BagsPage.addToCart(driver))).click();
        // MainPage.openGearDropdown(driver).click();
 //    RegistrationPage.notRegisteredYet(driver).click();
 //    RegistrationPage.userName(driver).sendKeys("Roi");
