@@ -15,9 +15,18 @@ public class BagsPage {
         return element;
     }
 
-
     public  static WebElement addToCart (WebDriver driver){
         element = driver.findElement(By.xpath("//button[@title=\"Add to Cart\"]"));
+        return element;
+    }
+
+    public  static WebElement counterNumber (WebDriver driver){
+        element = driver.findElement(By.cssSelector("span.counter-number"));
+        return element;
+    }
+
+    public  static WebElement checkoutControl (WebDriver driver){
+        element = driver.findElement(By.id("top-cart-btn-checkout"));
         return element;
     }
 

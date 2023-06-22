@@ -1,5 +1,6 @@
 import org.junit.*;
 import org.junit.runners.MethodSorters;
+import org.openqa.selenium.By;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.firefox.FirefoxProfile;
@@ -52,6 +53,10 @@ public void SanityTest01_Registration_Page_Verification(){
        MainPage.Bags(driver).click();
        BagsPage.pushItMessengerBag(driver).click();
        wait.until(ExpectedConditions.elementToBeClickable(BagsPage.addToCart(driver))).click();
+       wait.until(ExpectedConditions.textToBePresentInElement(BagsPage.counterNumber(driver),"1"));
+       BagsPage.counterNumber(driver).click();
+       BagsPage.checkoutControl(driver).click();
+
        // MainPage.openGearDropdown(driver).click();
 //    RegistrationPage.notRegisteredYet(driver).click();
 //    RegistrationPage.userName(driver).sendKeys("Roi");
