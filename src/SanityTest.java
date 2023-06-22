@@ -1,13 +1,11 @@
 import org.junit.*;
 import org.junit.runners.MethodSorters;
-import org.openqa.selenium.By;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.firefox.FirefoxProfile;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 @FixMethodOrder (MethodSorters.NAME_ASCENDING)
@@ -91,13 +89,9 @@ public void SanityTest01_Registration_Page_Verification() throws InterruptedExce
 
 }
 
-
-
-
-
     @AfterClass
     public static void after (){
-//        driver.quit();
+        driver.quit();
 
     }
 

@@ -2,11 +2,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.interactions.MoveTargetOutOfBoundsException;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
-// this class is the object repository of the Gift selection page
 
 public class ShippingPage {
 
@@ -14,8 +10,6 @@ public class ShippingPage {
     public static WebElement scrollToElement;
 
     public static WebElement email (WebDriver driver){
-//        driver.switchTo().frame(driver.findElement(By.cssSelector("form.form.form-login[data-role=email-with-possible-login]")));
-//        element = driver.findElement(By.cssSelector("input#customer-email.input-text[type=email][name=username][aria-required=true]"));
         element=driver.findElement(By.xpath("//form[@data-role=\"email-with-possible-login\"]//div//div//input[@id=\"customer-email\"]"));
         return element;
     }
@@ -31,10 +25,7 @@ public class ShippingPage {
     }
 
     public static WebElement company (WebDriver driver){
-//        String js_code = "arguments[0].scrollIntoView();";
         element = driver.findElement(By.xpath("//form[@id=\"co-shipping-form\"]//div//div//div[@class=\"control\"]//input[@name=\"company\"]"));
-//        JavascriptExecutor jse = (JavascriptExecutor)driver;
-//        scrollToElement = (WebElement) jse.executeScript("arguments[0].scrollIntoView();", element);
         scrollToElement(element,driver);
         return element;
     }
@@ -87,13 +78,5 @@ public class ShippingPage {
         scrollToElement = (WebElement) jse.executeScript("arguments[0].scrollIntoView();", element);
 
     }
-
-
-
-
-
-
-
-
 
 }
