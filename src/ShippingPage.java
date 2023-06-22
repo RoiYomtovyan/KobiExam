@@ -30,11 +30,25 @@ public class ShippingPage {
     }
 
     public static WebElement company (WebDriver driver){
-        String js_code = "arguments[0].scrollIntoView();";
+//        String js_code = "arguments[0].scrollIntoView();";
         element = driver.findElement(By.xpath("//form[@id=\"co-shipping-form\"]//div//div//div[@class=\"control\"]//input[@name=\"company\"]"));
+//        JavascriptExecutor jse = (JavascriptExecutor)driver;
+//        scrollToElement = (WebElement) jse.executeScript("arguments[0].scrollIntoView();", element);
+        scrollToElement(element,driver);
+        return element;
+    }
+
+    public static WebElement streetAddress  (WebDriver driver){
+        element = driver.findElement(By.xpath("//form[@id=\"co-shipping-form\"]//div//div//div[@class=\"control\"]//input[@name=\"street[0]\"]"));
+        scrollToElement(element,driver);
+        return element;
+    }
+
+    public static void scrollToElement (WebElement element ,WebDriver driver){
+        String js_code = "arguments[0].scrollIntoView();";
         JavascriptExecutor jse = (JavascriptExecutor)driver;
         scrollToElement = (WebElement) jse.executeScript("arguments[0].scrollIntoView();", element);
-        return element;
+
     }
 
 
