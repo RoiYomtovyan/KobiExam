@@ -62,6 +62,7 @@ public void SanityTest01_Registration_Page_Verification() throws InterruptedExce
        Thread.sleep(4000);
        action.moveToElement(ShippingPage.email(driver)).build().perform();
        ShippingPage.email(driver).click();
+       ShippingPage.email(driver).sendKeys("roi@roi.com");
 
        // MainPage.openGearDropdown(driver).click();
 //    RegistrationPage.notRegisteredYet(driver).click();
