@@ -75,6 +75,11 @@ public class ShippingPage {
         return element;
     }
 
+    public static WebElement nextButton (WebDriver driver){
+        element = driver.findElement(By.cssSelector("button.button.action.continue.primary"));
+        scrollToElement(element,driver);
+        return element;
+    }
 
     public static void scrollToElement (WebElement element , WebDriver driver){
         String js_code = "arguments[0].scrollIntoView();";
@@ -82,6 +87,8 @@ public class ShippingPage {
         scrollToElement = (WebElement) jse.executeScript("arguments[0].scrollIntoView();", element);
 
     }
+
+
 
 
 

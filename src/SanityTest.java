@@ -81,7 +81,9 @@ public void SanityTest01_Registration_Page_Verification() throws InterruptedExce
        ShippingPage.region(driver).click();
        ShippingPage.region(driver).sendKeys("California");
        ShippingPage.region(driver).click();
+       Thread.sleep(5000);
        wait.until(ExpectedConditions.elementToBeClickable(ShippingPage.selectFlatRateShippingMethod(driver))).click();
+       ShippingPage.nextButton(driver).click();
 }
 
 
