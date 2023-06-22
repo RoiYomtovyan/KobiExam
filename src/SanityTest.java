@@ -86,6 +86,8 @@ public void SanityTest01_Registration_Page_Verification() throws InterruptedExce
        ShippingPage.nextButton(driver).click();
        Thread.sleep(5000);
        wait.until(ExpectedConditions.elementToBeClickable(ReviewAndPayPage.placeOrder(driver))).click();
+       Thread.sleep(5000);
+       ReviewAndPayPage.printOrderIDtoFile(driver);
 
 }
 
