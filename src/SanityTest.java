@@ -73,6 +73,8 @@ public void SanityTest01_Registration_Page_Verification() throws InterruptedExce
        ShippingPage.streetAddress(driver).sendKeys("the best street in town!");
        ShippingPage.city(driver).click();
        ShippingPage.city(driver).sendKeys("the best city in the world!");
+       ShippingPage.postCode(driver).click();
+       ShippingPage.postCode(driver).sendKeys("12345-6789");
 }
 
 
