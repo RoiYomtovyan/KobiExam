@@ -40,7 +40,7 @@ public class SanityTest {
         // Create a new Firefox WebDriver instance
         driver = new FirefoxDriver(options);
 
-        // Example usage: Open a webpage
+        // Open the Magento webpage
         driver.get("https://magento.softwaretestingboard.com/");
 
 
