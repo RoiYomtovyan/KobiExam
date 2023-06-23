@@ -7,6 +7,13 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.*;
+
+import java.io.FileReader;
+import java.io.IOException;
+
 
 @FixMethodOrder (MethodSorters.NAME_ASCENDING)
 
@@ -15,10 +22,28 @@ public class SanityTest {
     Actions action = new Actions(driver);
     WebDriverWait wait = new WebDriverWait(driver, 30);
 
+    // this will allow us to read the test configuration from a file
+    static Object file;
+
+    static {
+        try {
+            file = new JSONParser().parse(new FileReader("config.json"));
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        } catch (ParseException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    static JSONObject config = (JSONObject) file;
+
+//    public SanityTest() throws IOException, ParseException {
+//    }
+
     @BeforeClass
     public static void start () throws Exception {
 
-        String userAgent = "Mozilla/5.0 (iPhone; CPU iPhone OS 16_3_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.3 Mobile/15E148 Safari/604.1";
+        String userAgent = config.get("userAgent").toString();
 
         // Configure Firefox options
         FirefoxOptions options = new FirefoxOptions();
@@ -35,13 +60,13 @@ public class SanityTest {
         // Set the profile in Firefox options
         options.setProfile(profile);
 
-        System.setProperty("webdriver.gecko.driver", "C:\\Users\\avivit\\Documents\\GitHub\\Kobi'sExam\\geckodriver.exe");
+        System.setProperty(config.get("driverType").toString(), config.get("driverLocation").toString());
 
         // Create a new Firefox WebDriver instance
         driver = new FirefoxDriver(options);
 
         // Open the Magento webpage
-        driver.get("https://magento.softwaretestingboard.com/");
+        driver.get(config.get("url").toString());
 
 
     }
