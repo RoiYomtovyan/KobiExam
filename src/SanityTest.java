@@ -71,7 +71,7 @@ public class SanityTest {
 public void SanityTest01_Place_Bag_Order_And_Export_OrderID() throws InterruptedException {
        wait.until(ExpectedConditions.titleIs("Home Page"));
        wait.until(ExpectedConditions.elementToBeClickable(MainPage.openGearDropdown(driver)));
-       Thread.sleep(4000);
+       Thread.sleep(2000);
        action.moveToElement(MainPage.openGearDropdown(driver)).build().perform();
        MainPage.Bags(driver).click();
        BagsPage.selectPushItMessengerBag(driver).click();
@@ -79,6 +79,7 @@ public void SanityTest01_Place_Bag_Order_And_Export_OrderID() throws Interrupted
        wait.until(ExpectedConditions.textToBePresentInElement(BagsPage.counterNumber(driver),"1"));
        BagsPage.counterNumber(driver).click();
        BagsPage.checkoutControl(driver).click();
+       wait.until(ExpectedConditions.titleIs("Checkout"));
        Thread.sleep(4000);
        action.moveToElement(ShippingPage.email(driver)).build().perform();
        ShippingPage.email(driver).click();
