@@ -7,10 +7,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.*;
-
 import java.io.FileReader;
 import java.io.IOException;
 
@@ -36,9 +34,6 @@ public class SanityTest {
     }
 
     static JSONObject config = (JSONObject) file;
-
-//    public SanityTest() throws IOException, ParseException {
-//    }
 
     @BeforeClass
     public static void start () throws Exception {
@@ -72,11 +67,14 @@ public class SanityTest {
     }
 
 @Test
-public void SanityTest01_Registration_Page_Verification() throws InterruptedException {
+// This test will place order for "Push It Messenger" Bag and will export the orderID to file
+public void SanityTest01_Place_Bag_Order_And_Export_OrderID() throws InterruptedException {
+       wait.until(ExpectedConditions.titleIs("Home Page"));
        wait.until(ExpectedConditions.elementToBeClickable(MainPage.openGearDropdown(driver)));
+       Thread.sleep(4000);
        action.moveToElement(MainPage.openGearDropdown(driver)).build().perform();
        MainPage.Bags(driver).click();
-       BagsPage.pushItMessengerBag(driver).click();
+       BagsPage.selectPushItMessengerBag(driver).click();
        wait.until(ExpectedConditions.elementToBeClickable(BagsPage.addToCart(driver))).click();
        wait.until(ExpectedConditions.textToBePresentInElement(BagsPage.counterNumber(driver),"1"));
        BagsPage.counterNumber(driver).click();
@@ -110,7 +108,7 @@ public void SanityTest01_Registration_Page_Verification() throws InterruptedExce
        Thread.sleep(5000);
        wait.until(ExpectedConditions.elementToBeClickable(ReviewAndPayPage.placeOrder(driver))).click();
        Thread.sleep(5000);
-       ReviewAndPayPage.printOrderIDtoFile(driver);
+       ReviewAndPayPage.printOrderIDtoFile(driver ,"C:\\Users\\avivit\\Documents\\GitHub\\KobiExam\\orderValue.txt");
 
 }
 
