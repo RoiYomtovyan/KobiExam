@@ -7,7 +7,7 @@ public class BonusSubTask {
     /*
     first I created chrome profile with "block third party cookies" option enabled
     I used this guide to export it: https://smallbusiness.chron.com/export-chrome-profile-79321.html
-    and put it on "Default" folder that is not attached to this project because of its size.
+    and put it on "Default" folder that its content is not attached to this project because of its size.
     I also used this documentation : https://chromedriver.chromium.org/capabilities#TOC-Use-custom-profile-also-called-user-data-directory-
     that explain how to configure the user-data-dir With the path to the exported chrome profile in the ChromeOptions object.
      */
